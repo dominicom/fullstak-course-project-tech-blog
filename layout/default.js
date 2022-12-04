@@ -1,28 +1,28 @@
 import Link from 'next/link';
-import { Children } from 'react';
+
+const navlinks = [
+  { path: '/', label: 'Blog', id: 1},
+  { path: '/about', label: 'About', id: 2},
+  { path: '/projects', label: 'Projects', id: 3},
+];
 
 export default function Layout({ children }) {
   return (
-    <div>
-      <div className="p-10 font-mono">
-        <nav className="bg-blue-100 p-5 flex justify-center">
-          <Link href="/">
-            <div className="shadow md:w-40 bg-blue-50 p-2 m-2 text-center hover:bg-gray-50">
-              Blog
-            </div>
-          </Link>
-          <Link href="/about">
-            <div className="shadow md:w-40 bg-blue-50 p-2 m-2 text-center hover:bg-gray-50">
-              About
-            </div>
-          </Link>
-        </nav>
-      </div>
+    <div className="p-10 font-mono max-w-screen-xl mx-auto">
       
-      <main>
+      <nav className="bg-blue-400 p-5 flex justify-center">
+        {navlinks.map(link => (
+          <Link key={link.id} href={link.path} className="shadow md:w-40 bg-blue-50 p-2 m-2 text-center hover:bg-gray-50">
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+
+      
+      <main className="bg-gray-100 p-5">
         {children}
       </main>
-      <footer className="bg-blue-400 p-5 text-gray-100 text-center">
+      <footer className="bg-blue-400 p-10 text-gray-100 text-center">
         © {new Date().getFullYear()}
       </footer>
     </div>
