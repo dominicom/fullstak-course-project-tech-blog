@@ -1,10 +1,11 @@
 import Layout from 'layout/default';
+import Link from 'next/link';
 
-export default function Home() {
+export default function About() {
   return (
     <Layout>
       <h1 className="text-center">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
+        About
       </h1>
     </Layout>
   );
