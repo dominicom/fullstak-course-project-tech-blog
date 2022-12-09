@@ -20,7 +20,9 @@ export default function Layout({ children }) {
 
       
       <main className="bg-gray-100 p-5">
+
         {children}
+
       </main>
       <footer className="bg-blue-400 p-10 text-gray-100 text-center">
         © {new Date().getFullYear()}

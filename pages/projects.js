@@ -1,15 +1,14 @@
 import Layout from 'layout/default';
 import Head from 'next/head';
-
-import { getList } from 'lib/markdownParser';
+import { getAllProjects } from 'services/projects';
 
 export const getStaticProps = () => {
-  const projects = getList('_projects');
+  const projects = getAllProjects();
 
   return {
     props: { projects }
   };
-}
+};
 
 export default function Projects({ projects }) {
   console.log('Projects', projects);
@@ -20,7 +19,7 @@ export default function Projects({ projects }) {
       <Head>
         <title>Blog | My projects</title>
       </Head>
-      <h1 className="text-center p-10">
+      <h1 className="text-4xl mb-10">
         My Projects
       </h1>
       <ul className="-mb-8">
